@@ -63,7 +63,7 @@ export default combineReducers({
     allSkidays,
     goal,
     errors,
-    resortNames : combineReducers({
+    resortNames: combineReducers({
         fetching,
         suggestions
     })
