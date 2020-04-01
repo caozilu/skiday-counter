@@ -1,11 +1,11 @@
 import C from '../constants'
 import appReducer from './reducers'
+import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 
 const consoleMessages = store => next => action => {
 
-    let result
-    let next = store.dispatch
+	let result
 
 	console.groupCollapsed(`dispatching action => ${action.type}`)
 	console.log('ski days', store.getState().allSkiDays.length)
@@ -30,5 +30,5 @@ const consoleMessages = store => next => action => {
 }
 
 export default (initialState={}) => {
-	return applyMiddleware(consoleMessages)(createStore)(appReducer, initialState)
+	return applyMiddleware(thunk,consoleMessages)(createStore)(appReducer, initialState)
 }
