@@ -1,15 +1,13 @@
 import C from '../constants';
 import {combineReducers} from 'redux';
 
-export const goal = (state=10, action) => {
+export const goal = (state=10, action) => 
     (action.type === C.SET_GOAL) ?
-    action.payload : state
-}
+    parseInt(action.payload) : state
 
-export const skiDay = (state=null, action) => {
+export const skiDay = (state=null, action) => 
     (action.type === C.ADD_DAY) ?
     action.payload : state
-}
 
 export const errors = (state=[], action) => {
     switch(action.type) {
